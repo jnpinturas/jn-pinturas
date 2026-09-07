@@ -3,391 +3,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>JN Pinturas | Pinturas em Geral</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f7f5f2;
+color:#2b211b;
+line-height:1.6
 }
 
-html {
-  scroll-behavior: smooth;
+header{
+background:#2b211b;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 3px 15px rgba(0,0,0,.2)
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f7f5f2;
-  color: #2b211b;
+.nav{
+max-width:1150px;
+margin:auto;
+padding:18px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
 }
 
-/* MENU */
-header {
-  background: #2b211b;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 3px 15px rgba(0,0,0,.2);
+.brand{
+font-size:27px;
+font-weight:bold;
+color:#f28c28;
+white-space:nowrap
 }
 
-.nav {
-  max-width: 1150px;
-  margin: auto;
-  padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+.brand span{color:white}
+
+nav{
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+justify-content:center
 }
 
-.brand {
-  font-size: 27px;
-  font-weight: bold;
-  color: #f28c28;
-  white-space: nowrap;
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:14px
 }
 
-.brand span {
-  color: white;
+nav a:hover{color:#f28c28}
+
+.cta,.btn{
+background:#f28c28;
+color:white;
+text-decoration:none;
+padding:12px 20px;
+border-radius:8px;
+font-weight:bold;
+display:inline-block
 }
 
-nav {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
+.hero{
+min-height:600px;
+display:flex;
+align-items:center;
+background:linear-gradient(135deg,#2b211b,#4b3528,#f28c28);
+color:white
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
+.hero-inner{
+max-width:1150px;
+width:100%;
+margin:auto;
+padding:70px 20px
 }
 
-nav a:hover {
-  color: #f28c28;
+.hero h1{
+max-width:800px;
+font-size:clamp(40px,6vw,70px);
+line-height:1.05;
+margin-bottom:25px
 }
 
-.cta,
-.btn {
-  background: #f28c28;
-  color: white;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  display: inline-block;
+.hero h1 span{color:#f28c28}
+
+.hero p{
+max-width:650px;
+font-size:19px;
+margin-bottom:30px
 }
 
-/* INÍCIO */
-.hero {
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, #2b211b, #4b3528, #f28c28);
-  color: white;
+.container{
+max-width:1150px;
+margin:auto;
+padding:80px 20px
 }
 
-.hero-inner {
-  max-width: 1150px;
-  width: 100%;
-  margin: auto;
-  padding: 70px 20px;
+.title{
+text-align:center;
+font-size:38px;
+margin-bottom:10px
 }
 
-.hero h1 {
-  max-width: 800px;
-  font-size: clamp(40px, 6vw, 70px);
-  line-height: 1.05;
-  margin-bottom: 25px;
+.subtitle{
+text-align:center;
+color:#777;
+margin-bottom:40px
 }
 
-.hero h1 span {
-  color: #f28c28;
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px
 }
 
-.hero p {
-  max-width: 650px;
-  font-size: 19px;
-  margin-bottom: 30px;
+.card{
+background:white;
+padding:30px 22px;
+border-radius:15px;
+box-shadow:0 8px 30px rgba(0,0,0,.08);
+border-top:4px solid #f28c28
 }
 
-/* SEÇÕES */
-.container {
-  max-width: 1150px;
-  margin: auto;
-  padding: 80px 20px;
+.icon{
+font-size:35px;
+margin-bottom:15px
 }
 
-.title {
-  text-align: center;
-  font-size: 38px;
-  margin-bottom: 10px;
+.band{
+background:#2b211b;
+color:white
 }
 
-.subtitle {
-  text-align: center;
-  color: #777;
-  margin-bottom: 40px;
+.band-grid{
+max-width:1150px;
+margin:auto;
+padding:70px 20px;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:40px;
+align-items:center
 }
 
-/* SERVIÇOS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.band h2{
+font-size:35px;
+margin-bottom:15px
 }
 
-.card {
-  background: white;
-  padding: 30px 22px;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.08);
-  border-top: 4px solid #f28c28;
+.projects{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px
 }
 
-.icon {
-  font-size: 35px;
-  margin-bottom: 15px;
+.project{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 30px rgba(0,0,0,.1)
 }
 
-/* SOBRE */
-.band {
-  background: #2b211b;
-  color: white;
+.project img{
+width:100%;
+height:300px;
+object-fit:cover;
+display:block
 }
 
-.band-grid {
-  max-width: 1150px;
-  margin: auto;
-  padding: 70px 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+.project-info{
+padding:20px
 }
 
-.band h2 {
-  font-size: 35px;
-  margin-bottom: 15px;
+.trust-section{background:white}
+
+.trust-grid{
+max-width:1150px;
+margin:auto;
+padding:80px 20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center
 }
 
-/* GALERIA */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+.trust-photo{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:20px
 }
 
-.project {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0,0,0,.1);
+.trust-copy h2{
+font-size:43px;
+margin-bottom:15px
 }
 
-.project img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
+.trust-copy h2 span{color:#f28c28}
 
-.project-info {
-  padding: 20px;
-}
-
-.project-info h3 {
-  margin-bottom: 8px;
-}
-
-/* DESTAQUE */
-.trust-section {
-  background: white;
-}
-
-.trust-grid {
-  max-width: 1150px;
-  margin: auto;
-  padding: 80px 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.trust-photo {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.trust-copy h2 {
-  font-size: 43px;
-  margin-bottom: 15px;
-}
-
-.trust-copy h2 span {
-  color: #f28c28;
-}
-
-.trust-point {
-  margin: 18px 0;
-}
+.trust-point{margin:18px 0}
 
 .trust-point b,
-.trust-point small {
-  display: block;
+.trust-point small{
+display:block
 }
 
-.trust-point small {
-  color: #777;
+.trust-point small{color:#777}
+
+.quote-banner{
+background:#f28c28;
+color:white;
+padding:45px 20px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:50px;
+text-align:center
 }
 
-/* ORÇAMENTO */
-.quote-banner {
-  background: #f28c28;
-  color: white;
-  padding: 45px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  text-align: center;
+.quote-banner h3{font-size:30px}
+
+.quote-btn{
+background:#2b211b;
+color:white;
+padding:14px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold
 }
 
-.quote-banner h3 {
-  font-size: 30px;
+.service-area{
+text-align:center;
+padding:55px 20px;
+background:#eee9e4
 }
 
-.quote-btn {
-  background: #2b211b;
-  color: white;
-  padding: 14px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+.service-area h3{
+font-size:28px;
+margin-bottom:8px
 }
 
-/* LOCAL */
-.service-area {
-  text-align: center;
-  padding: 55px 20px;
-  background: #eee9e4;
+footer{
+background:#2b211b;
+color:white;
+text-align:center;
+padding:45px 20px
 }
 
-.service-area h3 {
-  font-size: 28px;
-  margin-bottom: 8px;
+.footer-brand{
+color:#f28c28;
+font-size:30px;
+font-weight:bold;
+margin-bottom:10px
 }
 
-/* RODAPÉ */
-footer {
-  background: #2b211b;
-  color: white;
-  text-align: center;
-  padding: 45px 20px;
+footer p{
+color:#ccc;
+margin:5px
 }
 
-.footer-brand {
-  color: #f28c28;
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.whatsapp-float{
+position:fixed;
+right:20px;
+bottom:20px;
+width:62px;
+height:62px;
+border-radius:50%;
+background:#20b858;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-decoration:none;
+font-size:28px;
+box-shadow:0 6px 20px rgba(0,0,0,.25);
+z-index:9999
 }
 
-footer p {
-  color: #ccc;
-  margin: 5px;
+@media(max-width:900px){
+.nav{flex-direction:column}
+nav{gap:10px}
+.grid{grid-template-columns:repeat(2,1fr)}
+.band-grid,.trust-grid{grid-template-columns:1fr}
+.projects{grid-template-columns:1fr}
+.quote-banner{flex-direction:column;gap:20px}
 }
 
-/* WHATSAPP */
-.whatsapp-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
-  background: #20b858;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  font-size: 28px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.25);
-  z-index: 9999;
-}
-
-/* CELULAR */
-@media (max-width: 900px) {
-
-  .nav {
-    flex-direction: column;
-  }
-
-  nav {
-    gap: 10px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .band-grid,
-  .trust-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projects {
-    grid-template-columns: 1fr;
-  }
-
-  .quote-banner {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .brand {
-    font-size: 24px;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .title {
-    font-size: 31px;
-  }
-
-  .trust-copy h2 {
-    font-size: 34px;
-  }
-
-  .trust-photo {
-    height: 280px;
-  }
+@media(max-width:600px){
+.brand{font-size:24px}
+nav a{font-size:12px}
+.hero h1{font-size:42px}
+.hero p{font-size:16px}
+.grid{grid-template-columns:1fr}
+.title{font-size:31px}
+.trust-copy h2{font-size:34px}
+.trust-photo{height:280px}
 }
 </style>
 </head>
@@ -411,7 +326,7 @@ JN <span>PINTURAS</span>
 </nav>
 
 <a class="cta"
-href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
 target="_blank">
 Orçamento
 </a>
@@ -435,7 +350,7 @@ agilidade e compromisso.
 </p>
 
 <a class="btn"
-href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
 target="_blank">
 Solicitar orçamento
 </a>
@@ -499,7 +414,7 @@ Materiais de qualidade, cuidado com o ambiente e atenção aos detalhes.
 
 <div>
 <a class="cta"
-href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
 target="_blank">
 Entrar em contato
 </a>
@@ -514,7 +429,7 @@ Entrar em contato
 <h2 class="title">Serviços realizados</h2>
 
 <p class="subtitle">
-Veja algumas transformações feitas pela JN Pinturas.
+Veja alguns trabalhos realizados pela JN Pinturas.
 </p>
 
 <div class="projects">
@@ -522,13 +437,13 @@ Veja algumas transformações feitas pela JN Pinturas.
 <article class="project">
 
 <img
-src="whatsapp image 2026-09-07 at 15.14.30 (1).jpeg"
+src="WhatsApp Image 2026-09-07 at 15.14.30 (1).jpeg"
 alt="Serviço realizado pela JN Pinturas">
 
 <div class="project-info">
-<h3>Pintura residencial</h3>
+<h3>Serviço realizado</h3>
 <p>
-Serviço realizado pela JN Pinturas.
+Trabalho realizado pela JN Pinturas.
 </p>
 </div>
 
@@ -537,13 +452,13 @@ Serviço realizado pela JN Pinturas.
 <article class="project">
 
 <img
-src="whatsapp image 2026-09-07 at 15.14.30 (1).jpeg"
-alt="Serviço realizado pela JN Pinturas">
+src="WhatsApp Image 2026-09-07 at 15.14.30 (1).jpeg"
+alt="Pintura realizada pela JN Pinturas">
 
 <div class="project-info">
-<h3>Acabamento profissional</h3>
+<h3>Pintura residencial</h3>
 <p>
-Qualidade e cuidado em cada serviço.
+Acabamento realizado pela JN Pinturas.
 </p>
 </div>
 
@@ -560,7 +475,7 @@ Qualidade e cuidado em cada serviço.
 
 <img
 class="trust-photo"
-src="whatsapp image 2026-09-07 at 15.14.30 (1).jpeg"
+src="WhatsApp Image 2026-09-07 at 15.14.30 (1).jpeg"
 alt="Serviço realizado pela JN Pinturas">
 
 <div class="trust-copy">
@@ -595,7 +510,7 @@ cuidado com o ambiente e foco em um acabamento bonito.
 </div>
 
 <a class="trust-cta"
-href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
 target="_blank">
 Solicitar meu orçamento
 </a>
@@ -603,7 +518,6 @@ Solicitar meu orçamento
 </div>
 
 </div>
-
 </section>
 
 <section id="depoimentos">
@@ -650,7 +564,7 @@ A satisfação dos nossos clientes é muito importante para nós.
 </div>
 
 <a class="quote-btn"
-href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
 target="_blank">
 Solicitar orçamento
 </a>
@@ -679,7 +593,7 @@ JN PINTURAS
 
 <a
 class="whatsapp-float"
-href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
 target="_blank"
 aria-label="Falar com a JN Pinturas no WhatsApp">
 💬
