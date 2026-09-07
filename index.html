@@ -9,422 +9,451 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#f7f5f2;
-color:#2b211b;
-line-height:1.6;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f5f2;
+  color:#2b211b;
+  line-height:1.6;
 }
 
-/* MENU */
+/* =========================
+   MENU
+========================= */
 
 header{
-background:#2b211b;
-color:white;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 3px 15px rgba(0,0,0,.2);
+  background:#2b211b;
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 15px rgba(0,0,0,.2);
 }
 
 .nav{
-max-width:1150px;
-margin:auto;
-padding:18px 20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
+  max-width:1150px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
-font-size:27px;
-font-weight:bold;
-color:#f28c28;
-white-space:nowrap;
+  font-size:27px;
+  font-weight:bold;
+  color:#f28c28;
+  white-space:nowrap;
 }
 
 .brand span{
-color:white;
+  color:white;
 }
 
 nav{
-display:flex;
-gap:16px;
-flex-wrap:wrap;
-justify-content:center;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
 nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-font-size:14px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
 }
 
 nav a:hover{
-color:#f28c28;
+  color:#f28c28;
 }
 
 .cta,
 .btn{
-background:#f28c28;
-color:white;
-text-decoration:none;
-padding:12px 20px;
-border-radius:8px;
-font-weight:bold;
-display:inline-block;
+  background:#f28c28;
+  color:white;
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:8px;
+  font-weight:bold;
+  display:inline-block;
 }
 
-/* INÍCIO */
+/* =========================
+   INÍCIO
+========================= */
 
 .hero{
-min-height:650px;
-display:flex;
-align-items:center;
-background:linear-gradient(135deg,#2b211b,#4b3528,#f28c28);
-color:white;
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,#2b211b,#4b3528,#f28c28);
+  color:white;
 }
 
 .hero-inner{
-max-width:1150px;
-width:100%;
-margin:auto;
-padding:60px 20px;
-text-align:center;
+  max-width:1150px;
+  width:100%;
+  margin:auto;
+  padding:70px 20px;
+  text-align:center;
 }
 
-/* LOGO */
+/* LOGO REDONDA - SEM CORTAR */
+
+.logo-container{
+  width:280px;
+  height:280px;
+  margin:0 auto 35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
 .hero-logo{
-width:auto;
-height:auto;
-max-width:320px;
-max-height:200px;
-object-fit:contain;
-display:block;
-margin:0 auto 30px;
-border-radius:15px;
-background:white;
-padding:10px;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  border-radius:50%;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.35));
 }
 
 .hero h1{
-max-width:800px;
-margin:0 auto 25px;
-font-size:clamp(40px,6vw,70px);
-line-height:1.05;
+  max-width:850px;
+  margin:0 auto 25px;
+  font-size:clamp(40px,6vw,70px);
+  line-height:1.05;
 }
 
 .hero h1 span{
-color:#f28c28;
+  color:#f28c28;
 }
 
 .hero p{
-max-width:650px;
-margin:0 auto 30px;
-font-size:19px;
+  max-width:650px;
+  margin:0 auto 30px;
+  font-size:19px;
 }
 
-/* SEÇÕES */
+/* =========================
+   SEÇÕES
+========================= */
 
 .container{
-max-width:1150px;
-margin:auto;
-padding:80px 20px;
+  max-width:1150px;
+  margin:auto;
+  padding:80px 20px;
 }
 
 .title{
-text-align:center;
-font-size:38px;
-margin-bottom:10px;
+  text-align:center;
+  font-size:38px;
+  margin-bottom:10px;
 }
 
 .subtitle{
-text-align:center;
-color:#777;
-margin-bottom:40px;
+  text-align:center;
+  color:#777;
+  margin-bottom:40px;
 }
 
-/* SERVIÇOS */
+/* =========================
+   SERVIÇOS
+========================= */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
 .card{
-background:white;
-padding:30px 22px;
-border-radius:15px;
-box-shadow:0 8px 30px rgba(0,0,0,.08);
-border-top:4px solid #f28c28;
+  background:white;
+  padding:30px 22px;
+  border-radius:15px;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  border-top:4px solid #f28c28;
 }
 
 .icon{
-font-size:35px;
-margin-bottom:15px;
+  font-size:35px;
+  margin-bottom:15px;
 }
 
-/* SOBRE */
+/* =========================
+   SOBRE
+========================= */
 
 .band{
-background:#2b211b;
-color:white;
+  background:#2b211b;
+  color:white;
 }
 
 .band-grid{
-max-width:1150px;
-margin:auto;
-padding:70px 20px;
-display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:40px;
-align-items:center;
+  max-width:1150px;
+  margin:auto;
+  padding:70px 20px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+  align-items:center;
 }
 
 .band h2{
-font-size:35px;
-margin-bottom:15px;
+  font-size:35px;
+  margin-bottom:15px;
 }
 
-/* GALERIA */
+/* =========================
+   GALERIA
+========================= */
 
 .projects{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
 }
 
 .project{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 30px rgba(0,0,0,.1);
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,.1);
 }
 
 .project img{
-width:100%;
-height:300px;
-object-fit:cover;
-display:block;
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  display:block;
 }
 
 .project-info{
-padding:20px;
+  padding:20px;
 }
 
 .project-info h3{
-margin-bottom:8px;
+  margin-bottom:8px;
 }
 
-/* DESTAQUE */
+/* =========================
+   SEU IMÓVEL
+========================= */
 
 .trust-section{
-background:white;
+  background:white;
 }
 
 .trust-grid{
-max-width:1150px;
-margin:auto;
-padding:80px 20px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
+  max-width:1150px;
+  margin:auto;
+  padding:80px 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
 .trust-photo{
-width:100%;
-height:450px;
-object-fit:cover;
-border-radius:20px;
+  width:100%;
+  height:450px;
+  object-fit:cover;
+  border-radius:20px;
 }
 
 .trust-copy h2{
-font-size:43px;
-margin-bottom:15px;
+  font-size:43px;
+  margin-bottom:15px;
 }
 
 .trust-copy h2 span{
-color:#f28c28;
+  color:#f28c28;
 }
 
 .trust-point{
-margin:18px 0;
+  margin:18px 0;
 }
 
 .trust-point b,
 .trust-point small{
-display:block;
+  display:block;
 }
 
 .trust-point small{
-color:#777;
+  color:#777;
 }
 
-/* ORÇAMENTO */
+/* =========================
+   ORÇAMENTO
+========================= */
 
 .quote-banner{
-background:#f28c28;
-color:white;
-padding:45px 20px;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:50px;
-text-align:center;
+  background:#f28c28;
+  color:white;
+  padding:45px 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:50px;
+  text-align:center;
 }
 
 .quote-banner h3{
-font-size:30px;
+  font-size:30px;
 }
 
 .quote-btn{
-background:#2b211b;
-color:white;
-padding:14px 25px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
+  background:#2b211b;
+  color:white;
+  padding:14px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-/* LOCAL */
+/* =========================
+   LOCAL
+========================= */
 
 .service-area{
-text-align:center;
-padding:55px 20px;
-background:#eee9e4;
+  text-align:center;
+  padding:55px 20px;
+  background:#eee9e4;
 }
 
 .service-area h3{
-font-size:28px;
-margin-bottom:8px;
+  font-size:28px;
+  margin-bottom:8px;
 }
 
-/* RODAPÉ */
+/* =========================
+   RODAPÉ
+========================= */
 
 footer{
-background:#2b211b;
-color:white;
-text-align:center;
-padding:45px 20px;
+  background:#2b211b;
+  color:white;
+  text-align:center;
+  padding:45px 20px;
 }
 
 .footer-brand{
-color:#f28c28;
-font-size:30px;
-font-weight:bold;
-margin-bottom:10px;
+  color:#f28c28;
+  font-size:30px;
+  font-weight:bold;
+  margin-bottom:10px;
 }
 
 footer p{
-color:#ccc;
-margin:5px;
+  color:#ccc;
+  margin:5px;
 }
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP
+========================= */
 
 .whatsapp-float{
-position:fixed;
-right:20px;
-bottom:20px;
-width:62px;
-height:62px;
-border-radius:50%;
-background:#20b858;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-text-decoration:none;
-font-size:28px;
-box-shadow:0 6px 20px rgba(0,0,0,.25);
-z-index:9999;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:#20b858;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-decoration:none;
+  font-size:28px;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+  z-index:9999;
 }
 
-/* CELULAR */
+/* =========================
+   CELULAR
+========================= */
 
 @media(max-width:900px){
 
-.nav{
-flex-direction:column;
-}
+  .nav{
+    flex-direction:column;
+  }
 
-nav{
-gap:10px;
-}
+  nav{
+    gap:10px;
+  }
 
-.grid{
-grid-template-columns:repeat(2,1fr);
-}
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-.band-grid,
-.trust-grid{
-grid-template-columns:1fr;
-}
+  .band-grid,
+  .trust-grid{
+    grid-template-columns:1fr;
+  }
 
-.projects{
-grid-template-columns:1fr;
-}
+  .projects{
+    grid-template-columns:1fr;
+  }
 
-.quote-banner{
-flex-direction:column;
-gap:20px;
-}
+  .quote-banner{
+    flex-direction:column;
+    gap:20px;
+  }
 
 }
 
 @media(max-width:600px){
 
-.brand{
-font-size:24px;
-}
+  .brand{
+    font-size:24px;
+  }
 
-nav a{
-font-size:12px;
-}
+  nav a{
+    font-size:12px;
+  }
 
-.hero-logo{
-max-width:260px;
-max-height:170px;
-}
+  .logo-container{
+    width:220px;
+    height:220px;
+    margin-bottom:30px;
+  }
 
-.hero h1{
-font-size:42px;
-}
+  .hero h1{
+    font-size:42px;
+  }
 
-.hero p{
-font-size:16px;
-}
+  .hero p{
+    font-size:16px;
+  }
 
-.grid{
-grid-template-columns:1fr;
-}
+  .grid{
+    grid-template-columns:1fr;
+  }
 
-.title{
-font-size:31px;
-}
+  .title{
+    font-size:31px;
+  }
 
-.trust-copy h2{
-font-size:34px;
-}
+  .trust-copy h2{
+    font-size:34px;
+  }
 
-.trust-photo{
-height:280px;
-}
+  .trust-photo{
+    height:280px;
+  }
 
 }
 
@@ -433,6 +462,10 @@ height:280px;
 </head>
 
 <body>
+
+<!-- =========================
+     MENU
+========================= -->
 
 <header>
 
@@ -454,25 +487,34 @@ JN <span>PINTURAS</span>
 <a class="cta"
 href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
 target="_blank">
+
 Orçamento
+
 </a>
 
 </div>
 
 </header>
 
+
 <main>
 
-<!-- INÍCIO -->
+<!-- =========================
+     INÍCIO
+========================= -->
 
 <section class="hero" id="inicio">
 
 <div class="hero-inner">
 
+<div class="logo-container">
+
 <img
 class="hero-logo"
 src="logo.jpg"
 alt="Logo JN Pinturas">
+
+</div>
 
 <h1>
 Transformamos seu ambiente com
@@ -487,14 +529,19 @@ agilidade e compromisso.
 <a class="btn"
 href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
 target="_blank">
+
 Solicitar orçamento
+
 </a>
 
 </div>
 
 </section>
 
-<!-- SERVIÇOS -->
+
+<!-- =========================
+     SERVIÇOS
+========================= -->
 
 <section id="servicos">
 
@@ -540,7 +587,10 @@ Soluções de pintura para renovar e valorizar seu imóvel.
 
 </section>
 
-<!-- SOBRE -->
+
+<!-- =========================
+     SOBRE
+========================= -->
 
 <section class="band" id="sobre">
 
@@ -561,7 +611,9 @@ e atenção aos detalhes.
 
 <div>
 
-<h3>Atendimento</h3>
+<h3>
+Atendimento
+</h3>
 
 <p>
 Fale conosco e solicite seu orçamento.
@@ -574,7 +626,9 @@ Fale conosco e solicite seu orçamento.
 <a class="cta"
 href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
 target="_blank">
+
 Entrar em contato
+
 </a>
 
 </div>
@@ -583,7 +637,10 @@ Entrar em contato
 
 </section>
 
-<!-- SERVIÇOS REALIZADOS -->
+
+<!-- =========================
+     SERVIÇOS REALIZADOS
+========================= -->
 
 <section id="galeria">
 
@@ -599,6 +656,9 @@ Veja alguns trabalhos realizados pela JN Pinturas.
 
 <div class="projects">
 
+
+<!-- FOTO 1 -->
+
 <article class="project">
 
 <img
@@ -607,7 +667,9 @@ alt="Serviço realizado pela JN Pinturas">
 
 <div class="project-info">
 
-<h3>Serviço realizado</h3>
+<h3>
+Serviço realizado
+</h3>
 
 <p>
 Trabalho realizado pela JN Pinturas.
@@ -618,6 +680,8 @@ Trabalho realizado pela JN Pinturas.
 </article>
 
 
+<!-- FOTO 2 -->
+
 <article class="project">
 
 <img
@@ -626,7 +690,9 @@ alt="Outro serviço realizado pela JN Pinturas">
 
 <div class="project-info">
 
-<h3>Outro serviço realizado</h3>
+<h3>
+Outro serviço realizado
+</h3>
 
 <p>
 Mais um trabalho realizado pela JN Pinturas.
@@ -636,13 +702,17 @@ Mais um trabalho realizado pela JN Pinturas.
 
 </article>
 
+
 </div>
 
 </div>
 
 </section>
 
-<!-- SEU IMÓVEL EM BOAS MÃOS -->
+
+<!-- =========================
+     SEU IMÓVEL EM BOAS MÃOS
+========================= -->
 
 <section class="trust-section">
 
@@ -687,7 +757,9 @@ cuidado com o ambiente e foco em um acabamento bonito.
 <a class="cta"
 href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
 target="_blank">
+
 Solicitar meu orçamento
+
 </a>
 
 </div>
@@ -696,7 +768,10 @@ Solicitar meu orçamento
 
 </section>
 
-<!-- DEPOIMENTOS -->
+
+<!-- =========================
+     DEPOIMENTOS
+========================= -->
 
 <section id="depoimentos">
 
@@ -728,6 +803,7 @@ Serviço realizado com cuidado e atenção aos detalhes.
 
 </div>
 
+
 <div class="card">
 
 <div class="icon">
@@ -743,6 +819,7 @@ Cliente JN Pinturas
 </p>
 
 </div>
+
 
 <div class="card">
 
@@ -766,7 +843,10 @@ Atendimento rápido e serviço bem organizado.
 
 </section>
 
-<!-- CONTATO -->
+
+<!-- =========================
+     CONTATO
+========================= -->
 
 <section class="quote-banner" id="contato">
 
@@ -785,10 +865,15 @@ Fale com a JN Pinturas e solicite seu orçamento.
 <a class="quote-btn"
 href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
 target="_blank">
+
 Solicitar orçamento
+
 </a>
 
 </section>
+
+
+<!-- LOCAL -->
 
 <section class="service-area">
 
@@ -804,21 +889,37 @@ Atendemos em <strong>Luziânia, Brasília e região.</strong>
 
 </main>
 
+
+<!-- =========================
+     RODAPÉ
+========================= -->
+
 <footer>
 
 <div class="footer-brand">
 JN PINTURAS
 </div>
 
-<p>Pinturas em Geral</p>
+<p>
+Pinturas em Geral
+</p>
 
-<p>📱 61 99356-5767</p>
+<p>
+📱 61 99356-5767
+</p>
 
-<p>📍 Luziânia, Brasília e região</p>
+<p>
+📍 Luziânia, Brasília e região
+</p>
 
-<p>© 2026 JN Pinturas — Todos os direitos reservados.</p>
+<p>
+© 2026 JN Pinturas — Todos os direitos reservados.
+</p>
 
 </footer>
+
+
+<!-- WHATSAPP -->
 
 <a
 class="whatsapp-float"
