@@ -1,0 +1,352 @@
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#062746;--orange:#ff8500;--blue:#123b70;--light:#f7f9fc}
+body{font-family:Arial,Helvetica,sans-serif;color:#10233b;background:#fff;line-height:1.6}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e8edf3}
+.nav{max-width:1180px;margin:auto;min-height:82px;padding:10px 20px;display:flex;align-items:center;gap:30px}
+.logo{width:150px;height:64px;object-fit:contain;border-radius:8px}
+nav{display:flex;gap:22px;align-items:center;flex:1;justify-content:center;flex-wrap:wrap}
+nav a{color:#10233b;text-decoration:none;font-weight:700;font-size:.92rem}
+nav a:hover{color:var(--orange)}
+.phone{font-weight:800;white-space:nowrap}
+.cta,.btn{background:var(--orange);color:#fff;text-decoration:none;border:0;border-radius:8px;padding:12px 18px;font-weight:800;display:inline-block}
+.hero{background:linear-gradient(120deg,var(--navy),#0b365d);color:#fff;padding:75px 20px}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+h1{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.05;margin-bottom:20px}
+h1 span{color:var(--orange)}
+.hero p{font-size:1.15rem;color:#e8eef5;max-width:600px;margin-bottom:28px}
+.hero-logo{background:#fff;border-radius:50%;padding:20px;max-width:330px;margin:auto;box-shadow:0 20px 50px #0004}
+section{padding:70px 20px}.container{max-width:1180px;margin:auto}
+.title{text-align:center;font-size:2.25rem;margin-bottom:10px}.subtitle{text-align:center;color:#667085;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{border:1px solid #e5e9ef;border-radius:14px;padding:26px;background:#fff;box-shadow:0 8px 25px #0b315d0b}
+.card h3{margin:10px 0}.icon{font-size:2rem;color:var(--orange)}
+.band{background:var(--navy);color:#fff}.band-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:25px;align-items:center}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-img{width:100%;max-width:500px;display:block;margin:auto;border-radius:18px}
+.list{display:grid;gap:14px}.list div{background:var(--light);padding:16px;border-radius:10px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery .ph{height:220px;border-radius:14px;background:linear-gradient(135deg,#e9eef5,#f9b35d);display:flex;align-items:center;justify-content:center;font-weight:800;color:#17385c}
+.quote{background:var(--light);padding:25px;border-radius:14px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+input,textarea{width:100%;padding:13px;margin:7px 0 14px;border:1px solid #d8dee8;border-radius:8px;font:inherit}
+textarea{min-height:150px}
+footer{background:#081b2e;color:#dbe5ef;padding:35px 20px;text-align:center}
+.footer-logo{width:120px;height:70px;object-fit:contain;background:#fff;border-radius:8px;margin-bottom:10px}
+@media(max-width:850px){.nav{flex-wrap:wrap;justify-content:center}.phone{display:none}.hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.band-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}nav{order:3;width:100%;gap:12px}}
+@media(max-width:520px){.grid,.gallery{grid-template-columns:1fr}nav a{font-size:.8rem}.hero{padding:50px 18px}}
+
+.projects{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:auto}
+.project{background:#fff;border:1px solid #e5e9ef;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px #0b315d12}
+.project img{width:100%;display:block;max-height:560px;object-fit:cover}
+.project div{padding:22px 25px}.project h3{font-size:1.35rem;margin-bottom:6px;color:#10233b}.project p{color:#667085}
+
+
+
+
+/* Entrada: três faixas de tinta + rolo subindo */
+.paint-intro{
+  position:fixed;inset:0;z-index:9999;pointer-events:none;
+  transform:translateY(0);
+  animation:paintReveal 2.2s cubic-bezier(.77,0,.18,1) .25s forwards;
+  background:linear-gradient(to right,#ff8500 0 33.33%,#fff 33.33% 66.66%,#6b3f24 66.66% 100%);
+}
+.paint-intro::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:115px;
+  background:
+    radial-gradient(ellipse 24px 95px at 8% 100%,rgba(255,133,0,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 18px 125px at 22% 100%,rgba(255,133,0,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 28px 80px at 39% 100%,rgba(255,255,255,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 20px 115px at 55% 100%,rgba(255,255,255,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 28px 100px at 72% 100%,rgba(107,63,36,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 20px 135px at 90% 100%,rgba(107,63,36,.90) 0 70%,transparent 72%);
+}
+.paint-drips{
+  position:absolute;left:50%;top:42%;width:115px;height:245px;
+  transform:translate(-50%,-50%);
+  z-index:2;
+}
+.paint-drips::before{
+  content:"";position:absolute;top:0;left:0;width:105px;height:48px;
+  border-radius:30px;background:#f5f5f5;
+  box-shadow:0 8px 18px #0004;
+}
+.paint-drips::after{
+  content:"";position:absolute;top:38px;left:49px;width:9px;height:170px;
+  background:#8d8d8d;border-radius:8px;transform:rotate(10deg);
+  transform-origin:top;
+}
+@keyframes paintReveal{
+  0%,55%{transform:translateY(0)}
+  100%{transform:translateY(-105%)}
+}
+@media(prefers-reduced-motion:reduce){
+  .paint-intro{animation:none;transform:translateY(-105%)}
+}
+
+/* =========================================================
+   ABERTURA JN PINTURAS — rolo + três faixas de tinta
+   ========================================================= */
+.paint-intro{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  overflow:hidden;
+  animation:introExit 2.25s cubic-bezier(.72,0,.18,1) 1.15s forwards;
+}
+
+/* Três paredes de tinta: laranja | branco | marrom */
+.paint-intro::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right,
+    rgba(255,133,0,.90) 0 33.333%,
+    rgba(255,255,255,.90) 33.333% 66.666%,
+    rgba(107,63,36,.90) 66.666% 100%);
+}
+
+/* Linha de tinta derretida */
+.paint-intro::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:54%;
+  height:95px;
+  background:
+    radial-gradient(ellipse 18px 48px at 4% 0,rgba(255,133,0,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 13px 68px at 12% 0,rgba(255,133,0,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 20px 52px at 23% 0,rgba(255,133,0,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 16px 62px at 34% 0,rgba(255,255,255,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 22px 45px at 46% 0,rgba(255,255,255,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 14px 70px at 58% 0,rgba(255,255,255,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 19px 54px at 69% 0,rgba(107,63,36,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 14px 72px at 81% 0,rgba(107,63,36,.90) 0 70%,transparent 72%),
+    radial-gradient(ellipse 21px 48px at 94% 0,rgba(107,63,36,.90) 0 70%,transparent 72%);
+}
+
+/* Rolo central */
+.paint-roller{
+  position:absolute;
+  z-index:3;
+  left:50%;
+  top:43%;
+  width:250px;
+  height:260px;
+  transform:translate(-50%,-50%);
+  animation:rollerUp 1.95s cubic-bezier(.7,0,.2,1) .85s forwards;
+  filter:drop-shadow(0 12px 10px rgba(0,0,0,.25));
+}
+.paint-roller .roller{
+  position:absolute;
+  left:18px;
+  top:0;
+  width:214px;
+  height:62px;
+  border-radius:34px;
+  background:linear-gradient(#fff,#ddd);
+  box-shadow:inset 0 -8px 10px #aaa6;
+}
+.paint-roller .arm{
+  position:absolute;
+  right:25px;
+  top:45px;
+  width:9px;
+  height:125px;
+  background:#777;
+  border-radius:8px;
+  transform:rotate(-4deg);
+}
+.paint-roller .hook{
+  position:absolute;
+  right:18px;
+  top:145px;
+  width:65px;
+  height:70px;
+  border-right:9px solid #777;
+  border-bottom:9px solid #777;
+  border-radius:0 0 35px 0;
+}
+.paint-roller .handle{
+  position:absolute;
+  left:91px;
+  top:176px;
+  width:42px;
+  height:105px;
+  border-radius:10px 10px 20px 20px;
+  background:linear-gradient(90deg,#ff7100,#ff9a22,#df5d00);
+}
+.paint-roller .handle::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:8px;
+  width:22px;
+  height:28px;
+  border-radius:50%;
+  border:4px solid #b84e00;
+  opacity:.7;
+}
+
+/* Logo no centro da faixa branca */
+.paint-logo{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  top:23%;
+  width:190px;
+  height:190px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:50%;
+  padding:12px;
+  transform:translate(-50%,-50%);
+  box-shadow:0 12px 35px rgba(0,0,0,.16);
+  animation:logoReveal 1s ease .35s both;
+}
+.paint-tagline{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  top:37%;
+  transform:translateX(-50%);
+  font-weight:800;
+  color:#092744;
+  white-space:nowrap;
+  font-size:1.05rem;
+  animation:logoReveal 1s ease .55s both;
+}
+.paint-progress{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  top:40%;
+  transform:translateX(-50%);
+  width:210px;
+  height:5px;
+  border-radius:5px;
+  background:linear-gradient(to right,#ff8500 0 33.33%,#ddd 33.33% 66.66%,#6b3f24 66.66%);
+  animation:logoReveal 1s ease .65s both;
+}
+
+@keyframes rollerUp{
+  0%{transform:translate(-50%,20vh)}
+  55%{transform:translate(-50%,-50%)}
+  100%{transform:translate(-50%,-70vh)}
+}
+@keyframes introExit{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-105%)}
+}
+@keyframes logoReveal{
+  from{opacity:0;transform:translate(-50%,-40%) scale(.88)}
+  to{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
+@media(max-width:600px){
+  .paint-roller{transform:translate(-50%,-50%) scale(.72)}
+  .paint-logo{width:145px;height:145px;top:25%}
+  .paint-tagline{top:40%;font-size:.86rem}
+  .paint-progress{top:43%;width:160px}
+}
+@media(prefers-reduced-motion:reduce){
+  .paint-intro{animation:none;transform:translateY(-105%)}
+  .paint-roller,.paint-logo,.paint-tagline,.paint-progress{animation:none}
+}
+
+.trust-section{background:#f7f9fc;padding:75px 20px}
+.trust-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center;max-width:1180px;margin:auto}
+.trust-photo{width:100%;max-height:500px;object-fit:cover;border-radius:20px;box-shadow:0 18px 45px #06274622}
+.trust-copy h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;color:#062746;margin-bottom:15px}
+.trust-copy h2 span{color:#ff8500}
+.trust-copy>p{color:#667085;font-size:1.05rem;margin-bottom:25px}
+.trust-points{display:grid;gap:13px;margin-bottom:28px}
+.trust-point{background:#fff;border:1px solid #e5e9ef;border-radius:12px;padding:15px 17px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 6px 20px #0627460b}
+.trust-point b{color:#10233b;display:block}.trust-point small{color:#667085}
+.trust-icon{font-size:1.35rem}
+.trust-cta{display:inline-block;background:#ff8500;color:#fff;text-decoration:none;border-radius:8px;padding:13px 20px;font-weight:800}
+@media(max-width:850px){.trust-grid{grid-template-columns:1fr}.trust-photo{max-height:380px}}
+
+/* WhatsApp flutuante */
+.whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:1000;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 7px 22px rgba(0,0,0,.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-float:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 28px rgba(0,0,0,.3);
+}
+.whatsapp-float svg{width:34px;height:34px;fill:#fff}
+.whatsapp-label{
+  position:absolute;
+  right:73px;
+  white-space:nowrap;
+  background:#062746;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:.82rem;
+  font-weight:700;
+  opacity:0;
+  transform:translateX(8px);
+  transition:.2s ease;
+  pointer-events:none;
+}
+.whatsapp-float:hover .whatsapp-label{opacity:1;transform:translateX(0)}
+@media(max-width:600px){
+  .whatsapp-float{width:56px;height:56px;right:15px;bottom:15px}
+  .whatsapp-float svg{width:30px;height:30px}
+  .whatsapp-label{display:none}
+}
+
+/* Modal de Mais serviços feitos */
+.service-modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.78);backdrop-filter:blur(4px);padding:20px;align-items:center;justify-content:center}
+.service-modal.show{display:flex}
+.service-modal-box{position:relative;width:min(950px,96vw);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.45)}
+.service-modal-box h2{margin:0 50px 18px 0;color:#062746}
+.service-modal-img{display:block;width:100%;max-height:75vh;object-fit:contain;border-radius:12px;background:#f2f2f2}
+.service-modal-close{position:absolute;right:16px;top:10px;width:42px;height:42px;border:0;border-radius:50%;background:#f1f3f5;color:#062746;font-size:30px;line-height:1;cursor:pointer}
+@media(max-width:600px){.service-modal{padding:10px}.service-modal-box{padding:15px;border-radius:14px}.service-modal-img{max-height:78vh}}
+
+.quote-banner{
+  margin:55px auto 0;
+  max-width:1180px;
+  padding:28px 32px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ff8500,#b85c00);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  box-shadow:0 14px 35px rgba(0,0,0,.16);
+}
+.quote-banner h3{margin:0 0 6px;font-size:1.55rem}
+.quote-banner p{margin:0;opacity:.95}
+.quote-banner .quote-btn{
+  display:inline-block;background:#fff;color:#9b4d00;text-decoration:none;
+  padding:13px 20px;border-radius:9px;font-weight:800;white-space:nowrap;
+}
+.service-area{
+  background:#062746;color:#fff;text-align:center;padding:38px 20px;
+}
+.service-area h3{margin:0 0 10px;font-size:1.45rem}
+.service-area p{margin:0;color:#dce6f0}
+@media(max-width:700px){
+  .quote-banner{flex-direction:column;text-align:center;padding:25px 20px}
+  .quote-banner .quote-btn{width:100%;box-sizing:border-box}
+}
