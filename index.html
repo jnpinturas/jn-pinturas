@@ -1,672 +1,689 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JN Pinturas | Pintura Residencial</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f5f2;
-      color: #2b211b;
-      line-height: 1.6;
-    }
-    header {
-      background: #2b211b;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 15px rgba(0,0,0,.2);
-    }
-    .nav {
-      max-width: 1150px;
-      margin: auto;
-      min-height: 75px;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .brand {
-      font-size: 27px;
-      font-weight: 900;
-      color: #f28c28;
-      white-space: nowrap;
-    }
-    .brand span {
-      color: white;
-    }
-    nav {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: bold;
-      transition: .3s;
-    }
-    nav a:hover {
-      color: #f28c28;
-    }
-    .phone {
-      font-size: 14px;
-      white-space: nowrap;
-    }
-    .cta,
-    .btn {
-      display: inline-block;
-      background: #f28c28;
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: .3s;
-      box-shadow: 0 5px 15px rgba(242,140,40,.25);
-    }
-    .cta:hover,
-    .btn:hover {
-      transform: translateY(-2px);
-      background: #d97312;
-    }
-    .hero {
-      min-height: 620px;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(135deg, #2b211b 0%, #4b3528 55%, #f28c28 100%);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      opacity: .12;
-    }
-    .hero::before {
-      width: 450px;
-      height: 450px;
-      background: white;
-      right: -120px;
-      top: -160px;
-    }
-    .hero::after {
-      width: 300px;
-      height: 300px;
-      background: #f28c28;
-      left: -100px;
-      bottom: -120px;
-    }
-    .hero-inner {
-      width: 100%;
-      max-width: 1150px;
-      margin: auto;
-      padding: 70px 20px;
-      position: relative;
-      z-index: 2;
-    }
-    .hero h1 {
-      max-width: 760px;
-      font-size: clamp(38px, 6vw, 70px);
-      line-height: 1.05;
-      margin-bottom: 25px;
-    }
-    .hero h1 span {
-      color: #f28c28;
-    }
-    .hero p {
-      max-width: 650px;
-      font-size: 19px;
-      color: #eee;
-      margin-bottom: 30px;
-    }
-    .container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 80px 20px;
-    }
-    .title {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      text-align: center;
-      color: #776b63;
-      margin-bottom: 45px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 30px 22px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.08);
-      transition: .3s;
-      border-top: 4px solid #f28c28;
-    }
-    .card:hover {
-      transform: translateY(-7px);
-    }
-    .icon {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-    .card h3 {
-      margin-bottom: 10px;
-    }
-    .band {
-      background: #2b211b;
-      color: white;
-    }
-    .band-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .band h2 {
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
-    .band p {
-      color: #ddd;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-    .project {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,.08);
-    }
-    .project-placeholder {
-      height: 230px;
-      background: linear-gradient(135deg, #4b3528, #f28c28);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 60px;
-    }
-    .project div {
-      padding: 22px;
-    }
-    .trust-section {
-      background: #fff;
-    }
-    .trust-grid {
-      max-width: 1150px;
-      margin: auto;
-      padding: 80px 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .trust-photo {
-      min-height: 400px;
-      border-radius: 20px;
-      background: linear-gradient(145deg, #f28c28, #2b211b);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 90px;
-    }
-    .trust-copy h2 {
-      font-size: 43px;
-      margin-bottom: 15px;
-    }
-    .trust-copy h2 span {
-      color: #f28c28;
-    }
-    .trust-copy > p {
-      color: #6d625a;
-      margin-bottom: 25px;
-    }
-    .trust-point {
-      display: flex;
-      gap: 15px;
-      margin: 18px 0;
-      align-items: flex-start;
-    }
-    .trust-icon {
-      font-size: 27px;
-    }
-    .trust-point b,
-    .trust-point small {
-      display: block;
-    }
-    .trust-point small {
-      color: #777;
-      margin-top: 3px;
-    }
-    .trust-cta {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 13px 22px;
-      background: #f28c28;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .quote-banner {
-      background: #f28c28;
-      color: white;
-      padding: 45px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-    .quote-banner h3 {
-      font-size: 30px;
-    }
-    .quote-banner p {
-      margin-top: 5px;
-    }
-    .quote-btn {
-      background: #2b211b;
-      color: white;
-      padding: 14px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-    .service-area {
-      text-align: center;
-      padding: 55px 20px;
-      background: #eee9e4;
-    }
-    .service-area h3 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-    footer {
-      background: #2b211b;
-      color: white;
-      text-align: center;
-      padding: 45px 20px;
-    }
-    footer .footer-brand {
-      font-size: 30px;
-      color: #f28c28;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    footer p {
-      color: #ccc;
-      margin: 5px;
-    }
-    .whatsapp-float {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: #20b858;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-decoration: none;
-      font-size: 30px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.25);
-      z-index: 9999;
-    }
-    @media (max-width: 900px) {
-      .nav {
-        flex-direction: column;
-        padding: 18px;
-      }
-      nav {
-        gap: 12px;
-      }
-      .phone {
-        display: none;
-      }
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .band-grid,
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-      .projects {
-        grid-template-columns: 1fr;
-      }
-      .quote-banner {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-    @media (max-width: 600px) {
-      .brand {
-        font-size: 24px;
-      }
-      nav {
-        gap: 9px;
-      }
-      nav a {
-        font-size: 12px;
-      }
-      .hero {
-        min-height: 540px;
-      }
-      .hero h1 {
-        font-size: 42px;
-      }
-      .hero p {
-        font-size: 16px;
-      }
-      .container,
-      .trust-grid {
-        padding: 55px 18px;
-      }
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      .title {
-        font-size: 31px;
-      }
-      .trust-copy h2 {
-        font-size: 34px;
-      }
-      .trust-photo {
-        min-height: 260px;
-        font-size: 65px;
-      }
-      .quote-banner h3 {
-        font-size: 25px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JN Pinturas | Pinturas em Geral</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f5f2;
+  color: #2b211b;
+}
+
+/* MENU */
+header {
+  background: #2b211b;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 15px rgba(0,0,0,.2);
+}
+
+.nav {
+  max-width: 1150px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-size: 27px;
+  font-weight: bold;
+  color: #f28c28;
+  white-space: nowrap;
+}
+
+.brand span {
+  color: white;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #f28c28;
+}
+
+.cta,
+.btn {
+  background: #f28c28;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* INÍCIO */
+.hero {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #2b211b, #4b3528, #f28c28);
+  color: white;
+}
+
+.hero-inner {
+  max-width: 1150px;
+  width: 100%;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+.hero h1 {
+  max-width: 800px;
+  font-size: clamp(40px, 6vw, 70px);
+  line-height: 1.05;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: #f28c28;
+}
+
+.hero p {
+  max-width: 650px;
+  font-size: 19px;
+  margin-bottom: 30px;
+}
+
+/* SEÇÕES */
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+/* SERVIÇOS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 30px 22px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  border-top: 4px solid #f28c28;
+}
+
+.icon {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+/* SOBRE */
+.band {
+  background: #2b211b;
+  color: white;
+}
+
+.band-grid {
+  max-width: 1150px;
+  margin: auto;
+  padding: 70px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.band h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+/* GALERIA */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.project {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,.1);
+}
+
+.project img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  margin-bottom: 8px;
+}
+
+/* DESTAQUE */
+.trust-section {
+  background: white;
+}
+
+.trust-grid {
+  max-width: 1150px;
+  margin: auto;
+  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.trust-photo {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.trust-copy h2 {
+  font-size: 43px;
+  margin-bottom: 15px;
+}
+
+.trust-copy h2 span {
+  color: #f28c28;
+}
+
+.trust-point {
+  margin: 18px 0;
+}
+
+.trust-point b,
+.trust-point small {
+  display: block;
+}
+
+.trust-point small {
+  color: #777;
+}
+
+/* ORÇAMENTO */
+.quote-banner {
+  background: #f28c28;
+  color: white;
+  padding: 45px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+}
+
+.quote-banner h3 {
+  font-size: 30px;
+}
+
+.quote-btn {
+  background: #2b211b;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* LOCAL */
+.service-area {
+  text-align: center;
+  padding: 55px 20px;
+  background: #eee9e4;
+}
+
+.service-area h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* RODAPÉ */
+footer {
+  background: #2b211b;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.footer-brand {
+  color: #f28c28;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+footer p {
+  color: #ccc;
+  margin: 5px;
+}
+
+/* WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #20b858;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  z-index: 9999;
+}
+
+/* CELULAR */
+@media (max-width: 900px) {
+
+  .nav {
+    flex-direction: column;
+  }
+
+  nav {
+    gap: 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .band-grid,
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-banner {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .brand {
+    font-size: 24px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 31px;
+  }
+
+  .trust-copy h2 {
+    font-size: 34px;
+  }
+
+  .trust-photo {
+    height: 280px;
+  }
+}
+</style>
 </head>
+
 <body>
+
 <header>
-  <div class="nav">
-    <div class="brand">
-      JN <span>PINTURAS</span>
-    </div>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre Nós</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#depoimentos">Depoimentos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <a class="cta"
-       href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso."
-       target="_blank">
-      Orçamento
-    </a>
-  </div>
-</header>
-<main>
-<section class="hero" id="inicio">
-  <div class="hero-inner">
-    <h1>
-      Transformamos seu ambiente com
-      <span>cores e qualidade!</span>
-    </h1>
-    <p>
-      Serviços de pintura residencial com acabamento profissional,
-      agilidade e compromisso.
-    </p>
-    <a class="btn"
-       href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso."
-       target="_blank">
-      Solicitar orçamento
-    </a>
-  </div>
-</section>
-<section id="servicos">
-  <div class="container">
-    <h2 class="title">Nossos serviços</h2>
-    <p class="subtitle">
-      Soluções de pintura para renovar e valorizar seu imóvel.
-    </p>
-    <div class="grid">
-      <div class="card">
-        <div class="icon">🏠</div>
-        <h3>Pintura interna</h3>
-        <p>
-          Acabamento para renovar e valorizar seus ambientes.
-        </p>
-      </div>
-      <div class="card">
-        <div class="icon">🏡</div>
-        <h3>Pintura externa</h3>
-        <p>
-          Proteção e beleza para fachadas, muros e áreas externas.
-        </p>
-      </div>
-      <div class="card">
-        <div class="icon">✓</div>
-        <h3>Preparação</h3>
-        <p>
-          Correção de imperfeições, massa, lixamento e preparação.
-        </p>
-      </div>
-      <div class="card">
-        <div class="icon">🖌️</div>
-        <h3>Acabamentos</h3>
-        <p>
-          Texturas e acabamentos especiais para deixar seu imóvel bonito.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="band" id="sobre">
-  <div class="container band-grid">
-    <div>
-      <h2>Qualidade que você vê, compromisso que você sente!</h2>
-      <p>
-        Na JN Pinturas, buscamos oferecer um serviço cuidadoso,
-        organizado e com atenção aos detalhes.
-      </p>
-    </div>
-    <div>
-      <h3>Atendimento</h3>
-      <p>
-        Fale conosco e solicite seu orçamento sem compromisso.
-      </p>
-    </div>
-    <div>
-      <a class="cta"
-         href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso."
-         target="_blank">
-        Entrar em contato
-      </a>
-    </div>
-  </div>
-</section>
-<section id="galeria">
-  <div class="container">
-    <h2 class="title">Serviços realizados</h2>
-    <p class="subtitle">
-      Veja alguns exemplos do nosso trabalho.
-    </p>
-    <div class="projects">
-      <article class="project">
-        <div class="project-placeholder">🎨</div>
-        <div>
-          <h3>Pintura residencial</h3>
-          <p>
-            Renovação de ambientes com acabamento cuidadoso.
-          </p>
-        </div>
-      </article>
-      <article class="project">
-        <div class="project-placeholder">🏠</div>
-        <div>
-          <h3>Pintura de fachada</h3>
-          <p>
-            Pintura externa para renovar e valorizar o imóvel.
-          </p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="trust-section">
-  <div class="trust-grid">
-    <div class="trust-photo">
-      🎨
-    </div>
-    <div class="trust-copy">
-      <h2>
-        Seu imóvel em <span>boas mãos.</span>
-      </h2>
-      <p>
-        Cada serviço é realizado com atenção aos detalhes,
-        cuidado com o ambiente e foco em um bom acabamento.
-      </p>
-      <div class="trust-point">
-        <div class="trust-icon">🎨</div>
-        <div>
-          <b>Capricho no acabamento</b>
-          <small>
-            Atenção aos detalhes em cada etapa da pintura.
-          </small>
-        </div>
-      </div>
-      <div class="trust-point">
-        <div class="trust-icon">🧹</div>
-        <div>
-          <b>Organização</b>
-          <small>
-            Cuidado com o espaço durante a realização do serviço.
-          </small>
-        </div>
-      </div>
-      <div class="trust-point">
-        <div class="trust-icon">📸</div>
-        <div>
-          <b>Serviços realizados</b>
-          <small>
-            Trabalhos realizados pela JN Pinturas.
-          </small>
-        </div>
-      </div>
-      <div class="trust-point">
-        <div class="trust-icon">📱</div>
-        <div>
-          <b>Atendimento direto</b>
-          <small>
-            Tire suas dúvidas pelo WhatsApp.
-          </small>
-        </div>
-      </div>
-      <a class="trust-cta"
-         href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso."
-         target="_blank">
-        Solicitar meu orçamento
-      </a>
-    </div>
-  </div>
-</section>
-<section id="depoimentos">
-  <div class="container">
-    <h2 class="title">Depoimentos</h2>
-    <p class="subtitle">
-      A satisfação dos nossos clientes é muito importante para nós.
-    </p>
-    <div class="grid">
-      <div class="card">
-        <div class="icon">⭐⭐⭐⭐⭐</div>
-        <h3>Cliente JN Pinturas</h3>
-        <p>
-          Serviço realizado com cuidado e atenção aos detalhes.
-        </p>
-      </div>
-      <div class="card">
-        <div class="icon">⭐⭐⭐⭐⭐</div>
-        <h3>Cliente JN Pinturas</h3>
-        <p>
-          Ótimo atendimento e resultado muito bonito.
-        </p>
-      </div>
-      <div class="card">
-        <div class="icon">⭐⭐⭐⭐⭐</div>
-        <h3>Cliente JN Pinturas</h3>
-        <p>
-          Atendimento rápido e serviço bem organizado.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="quote-banner" id="contato">
-  <div>
-    <h3>Orçamento sem compromisso</h3>
-    <p>
-      Conte o que você precisa e solicite seu orçamento.
-    </p>
-  </div>
-  <a class="quote-btn"
-     href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso."
-     target="_blank">
-    Solicitar orçamento
-  </a>
-</section>
-<section class="service-area">
-  <h3>📍 Onde atendemos</h3>
-  <p>
-    Atendemos em <strong>Luziânia, Brasília e região.</strong>
-  </p>
-</section>
-</main>
-<footer>
-  <div class="footer-brand">
-    JN PINTURAS
-  </div>
-  <p>
-    Pinturas em Geral
-  </p>
-  <p>
-    📱 61 99356-5767
-  </p>
-  <p>
-    📍 Luziânia, Brasília e região
-  </p>
-  <p>
-    © 2026 JN Pinturas — Todos os direitos reservados.
-  </p>
-</footer>
-<a class="whatsapp-float"
-   href="https://wa.me/5561993565767?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso."
-   target="_blank"
-   aria-label="Falar com a JN Pinturas no WhatsApp">
-  💬
+<div class="nav">
+
+<div class="brand">
+JN <span>PINTURAS</span>
+</div>
+
+<nav>
+<a href="#inicio">Início</a>
+<a href="#servicos">Serviços</a>
+<a href="#sobre">Sobre Nós</a>
+<a href="#galeria">Galeria</a>
+<a href="#depoimentos">Depoimentos</a>
+<a href="#contato">Contato</a>
+</nav>
+
+<a class="cta"
+href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+target="_blank">
+Orçamento
 </a>
+
+</div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+<div class="hero-inner">
+
+<h1>
+Transformamos seu ambiente com
+<span>cores e qualidade!</span>
+</h1>
+
+<p>
+Serviços de pintura residencial com acabamento profissional,
+agilidade e compromisso.
+</p>
+
+<a class="btn"
+href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+target="_blank">
+Solicitar orçamento
+</a>
+
+</div>
+</section>
+
+<section id="servicos">
+<div class="container">
+
+<h2 class="title">Nossos serviços</h2>
+
+<p class="subtitle">
+Soluções de pintura para renovar e valorizar seu imóvel.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🏠</div>
+<h3>Pintura interna</h3>
+<p>Acabamento para renovar e valorizar seus ambientes.</p>
+</div>
+
+<div class="card">
+<div class="icon">🏡</div>
+<h3>Pintura externa</h3>
+<p>Proteção e beleza para fachadas e muros.</p>
+</div>
+
+<div class="card">
+<div class="icon">✓</div>
+<h3>Preparação</h3>
+<p>Correção de imperfeições, massa, lixamento e fundo.</p>
+</div>
+
+<div class="card">
+<div class="icon">🖌️</div>
+<h3>Acabamentos</h3>
+<p>Texturas e acabamentos especiais.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="band" id="sobre">
+<div class="band-grid">
+
+<div>
+<h2>Qualidade que você vê, compromisso que você sente!</h2>
+<p>
+Materiais de qualidade, cuidado com o ambiente e atenção aos detalhes.
+</p>
+</div>
+
+<div>
+<h3>Atendimento</h3>
+<p>Fale conosco e solicite seu orçamento.</p>
+</div>
+
+<div>
+<a class="cta"
+href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+target="_blank">
+Entrar em contato
+</a>
+</div>
+
+</div>
+</section>
+
+<section id="galeria">
+<div class="container">
+
+<h2 class="title">Serviços realizados</h2>
+
+<p class="subtitle">
+Veja algumas transformações feitas pela JN Pinturas.
+</p>
+
+<div class="projects">
+
+<article class="project">
+
+<img
+src="whatsapp image 2026-09-07 at 15.14.30 (1).jpeg"
+alt="Serviço realizado pela JN Pinturas">
+
+<div class="project-info">
+<h3>Pintura residencial</h3>
+<p>
+Serviço realizado pela JN Pinturas.
+</p>
+</div>
+
+</article>
+
+<article class="project">
+
+<img
+src="whatsapp image 2026-09-07 at 15.14.30 (1).jpeg"
+alt="Serviço realizado pela JN Pinturas">
+
+<div class="project-info">
+<h3>Acabamento profissional</h3>
+<p>
+Qualidade e cuidado em cada serviço.
+</p>
+</div>
+
+</article>
+
+</div>
+
+</div>
+</section>
+
+<section class="trust-section">
+
+<div class="trust-grid">
+
+<img
+class="trust-photo"
+src="whatsapp image 2026-09-07 at 15.14.30 (1).jpeg"
+alt="Serviço realizado pela JN Pinturas">
+
+<div class="trust-copy">
+
+<h2>
+Seu imóvel em <span>boas mãos.</span>
+</h2>
+
+<p>
+Cada serviço é feito com atenção aos detalhes,
+cuidado com o ambiente e foco em um acabamento bonito.
+</p>
+
+<div class="trust-point">
+<b>🎨 Capricho no acabamento</b>
+<small>Atenção aos detalhes em cada etapa.</small>
+</div>
+
+<div class="trust-point">
+<b>🧹 Organização</b>
+<small>Cuidado com o espaço durante o serviço.</small>
+</div>
+
+<div class="trust-point">
+<b>📸 Serviços realizados</b>
+<small>Trabalhos reais da JN Pinturas.</small>
+</div>
+
+<div class="trust-point">
+<b>📱 Atendimento direto</b>
+<small>Fale conosco pelo WhatsApp.</small>
+</div>
+
+<a class="trust-cta"
+href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+target="_blank">
+Solicitar meu orçamento
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="depoimentos">
+
+<div class="container">
+
+<h2 class="title">Depoimentos</h2>
+
+<p class="subtitle">
+A satisfação dos nossos clientes é muito importante para nós.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">⭐⭐⭐⭐⭐</div>
+<h3>Cliente JN Pinturas</h3>
+<p>Serviço realizado com cuidado e atenção aos detalhes.</p>
+</div>
+
+<div class="card">
+<div class="icon">⭐⭐⭐⭐⭐</div>
+<h3>Cliente JN Pinturas</h3>
+<p>Ótimo atendimento e resultado muito bonito.</p>
+</div>
+
+<div class="card">
+<div class="icon">⭐⭐⭐⭐⭐</div>
+<h3>Cliente JN Pinturas</h3>
+<p>Atendimento rápido e serviço bem organizado.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="quote-banner" id="contato">
+
+<div>
+<h3>Orçamento sem compromisso</h3>
+<p>Fale com a JN Pinturas e solicite seu orçamento.</p>
+</div>
+
+<a class="quote-btn"
+href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+target="_blank">
+Solicitar orçamento
+</a>
+
+</section>
+
+<section class="service-area">
+<h3>📍 Onde atendemos</h3>
+<p>Atendemos em <strong>Luziânia, Brasília e região.</strong></p>
+</section>
+
+</main>
+
+<footer>
+
+<div class="footer-brand">
+JN PINTURAS
+</div>
+
+<p>Pinturas em Geral</p>
+<p>📱 61 99356-5767</p>
+<p>📍 Luziânia, Brasília e região</p>
+<p>© 2026 JN Pinturas — Todos os direitos reservados.</p>
+
+</footer>
+
+<a
+class="whatsapp-float"
+href="https://wa.me/5561993565767?text=Olá%2C%20vim%20pelo%20site%20da%20JN%20Pinturas%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+target="_blank"
+aria-label="Falar com a JN Pinturas no WhatsApp">
+💬
+</a>
+
 </body>
 </html>
